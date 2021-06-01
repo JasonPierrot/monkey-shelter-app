@@ -2,13 +2,13 @@
   "name": "monkey-shelter-app",
   "version": "1.0.0",
   "description": "Calls from Monkey Shelter API and creates a visual report",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node monkeyshelter-api/index.js",
-    "build": "cd ./monkeyshelter-ui && npm install && npm run build",
+    "start": "node server.js",
+    "build": "cd ui && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "npm start --prefix ./monkeyshelter-ui",
-    "dev": "concurrently \"nodemon server\" \"npm run client\""
+    "client": "npm start --prefix ui",
+    "dev": "concurrently \"nodemon server\" \"npm run ui\""
   },
   "keywords": [],
   "author": "Jason Pierrot",

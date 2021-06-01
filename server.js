@@ -6,7 +6,7 @@ const app = express();
 
 const port = process.env.port || 3001
 
-app.use(express.static(path.resolve(__dirname, '../monkeyshelter-ui/build')));
+app.use(express.static(path.resolve(__dirname, './ui/build')));
 
 app.use(cors());
 
@@ -27,8 +27,15 @@ app.get("/monkeyAPI", function (req, res) {
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../monkeyshelter-ui/build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, './ui/build', 'index.html'));
 });
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join('build', 'index.html'));
+  });
+}
 
 app.listen(port, () => {
 	console.log(`listening on http://localhost:${port}`)

@@ -1,1 +1,1 @@
-web: node ./monkeyshelter-api/index.js
+web: node server.js
