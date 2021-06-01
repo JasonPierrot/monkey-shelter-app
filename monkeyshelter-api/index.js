@@ -4,7 +4,7 @@ const path = require('path');
 const cors = require('cors');
 const app = express();
 
-const port = process.env.port || '0.0.0.0'
+const port = process.env.port || 3001
 
 app.use(express.static(path.resolve(__dirname, '../monkeyshelter-ui/build')));
 
