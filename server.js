@@ -1,3 +1,4 @@
+const {createServer} = require('http');
 const apiCallFromRequest = require('./monkeyRequest');
 const express = require('express');
 const path = require('path');
@@ -5,6 +6,9 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors());
+
+const normalizePort = port => parseInt(port, 10);
+const PORT = normalizePort(process.env.port || 3001);
 
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
@@ -35,4 +39,9 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(process.env.port || 3001);
+const server = createServer(app)
+
+server.listen(PORT, err =>{
+  if (err) throw err
+  console.log("server started...");
+});
