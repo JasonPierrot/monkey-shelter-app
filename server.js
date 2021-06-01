@@ -4,10 +4,6 @@ const path = require('path');
 const cors = require('cors');
 const app = express();
 
-const port = process.env.port || 3001
-
-app.use(express.static(path.resolve(__dirname, './ui/build')));
-
 app.use(cors());
 
 app.use(function (req, res, next) {
@@ -17,6 +13,8 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
+
+app.use(express.static(path.resolve(__dirname, './ui/build')));
 
 app.get("/monkeyAPI", function (req, res) {
 //   REQUEST
@@ -37,6 +35,4 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(port, () => {
-	console.log(`listening on http://localhost:${port}`)
-});
+app.listen(process.env.port || 3001);
