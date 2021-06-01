@@ -1,14 +1,14 @@
 {
   "name": "monkey-shelter-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Calls from Monkey Shelter API and creates a visual report",
   "main": "index.js",
   "scripts": {
     "start": "node monkeyshelter-api/index.js",
     "build": "cd ./monkeyshelter-ui && npm install && npm run build"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jason Pierrot",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
