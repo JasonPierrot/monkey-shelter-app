@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node monkeyshelter-api/index.js",
-    "build": "cd ./monkeyshelter-ui && npm install && npm run build"
+    "build": "cd ./monkeyshelter-ui && npm install && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npm start --prefix ./monkeyshelter-ui",
+    "dev": "concurrently \"nodemon server\" \"npm run client\""
   },
   "keywords": [],
   "author": "Jason Pierrot",
