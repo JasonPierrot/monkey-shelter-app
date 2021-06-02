@@ -8,7 +8,6 @@ import axios from "axios";
 function App() {
   const [monkeys, setMonkeys] = useState([]);
   const [species, setSpecies] = useState([]);
-  const [currentSpecies, setCurrentSpecies] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,7 +38,7 @@ function App() {
 
   return (
     <Box>
-      <Header species={currentSpecies} onChange={handleChange}/>
+      <Header/>
       <Box className="bodyContainer">
         <Box>
           <p>
